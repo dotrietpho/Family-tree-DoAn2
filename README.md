@@ -12,6 +12,7 @@ Bước 2:
 
 Để chạy được chương trình yêu cầu: 
       Có dữ liệu mẫu của node cha đầu tiên (Thêm bằng POST API thông qua cổng localhost/api/nodes/)
+      Sữa trong tree.service: hostULR, apiURL, fetchTree
       Chạy những lệnh trigger trong sql 
     
   
