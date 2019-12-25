@@ -20,7 +20,7 @@ export class TreeService {
 
   public fetchTree() {
     this.httpClient
-      .get<node>(`${this.apiURL}/nodes/9`)
+      .get<node>(`${this.apiURL}/nodes/1`)
       .toPromise()
       .then(data => {
         this.tree.next(data);

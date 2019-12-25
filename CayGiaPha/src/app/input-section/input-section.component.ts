@@ -16,8 +16,11 @@ export class InputSectionComponent implements OnInit {
   newPersonPictureFormData: FormData = new FormData();
   previewUrl: any = null;
   hostURL = "";
+  imgURL: string;
   constructor(private treeService: TreeService) {
     this.hostURL = treeService.hostURL;
+    this.previewUrl = "http://skhdt.hagiang.gov.vn/assets/img/default.jpg";
+    this.imgURL = "http://skhdt.hagiang.gov.vn/assets/img/default.jpg";
   }
 
   //Thay doi thong tin person dang duoc chon
@@ -57,13 +60,14 @@ export class InputSectionComponent implements OnInit {
     this.treeService.deletePerson(person.personId);
   }
 
+  //Upload img cua person hien tai
   onFileChanged(event) {
     let selectedFile = event.target.files[0];
     const uploadData = new FormData();
     uploadData.append("file", selectedFile, selectedFile.name);
     this.treeService.uploadFile(this.person.personId, uploadData);
   }
-
+  //Upload img cua new person
   onFileChanged2(event) {
     this.newPersonPicture = event.target.files[0];
     const uploadData = new FormData();
@@ -76,6 +80,7 @@ export class InputSectionComponent implements OnInit {
     this.preview();
   }
 
+  //Preview img cua new person
   preview() {
     // Show preview
     var mimeType = this.newPersonPicture.type;
@@ -94,5 +99,7 @@ export class InputSectionComponent implements OnInit {
 
   dataTran(input: Person) {
     this.person.copy(input);
+    this.imgURL =
+      input.personImg != null ? this.hostURL + input.personImg : this.imgURL;
   }
 }

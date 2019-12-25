@@ -1,4 +1,46 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+img {
+  box-shadow: 0px 0px 3px rgb(0, 0, 0, 0.7);
+  margin-bottom: 5px;
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+}
+
 .input-section {
-  padding-left: 25px;
-  padding-top: 25px;
+  width: 300px;
+  height: auto;
+  padding: 20px;
+  background: #f4f7f8;
+  border: 5px solid #53687e;
+  margin-left: 5px;
+}
+
+.form-check-label {
+  font-size: large;
+}
+
+.inputsex {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.inputsex:after {
+  font-family: "FontAwesome";
+  display: inline-block;
+  text-align: center;
+  font-size: 60px;
+  content: attr(data-icon);
+  border-radius: 15px;
+  color: rgba(0, 0, 0, 0.4);
+  transition: box-shadow 1s, color 1s;
+  width: 75px;
+}
+
+.inputsex:checked:after {
+  box-shadow: 2px 2px 14px rgba(30, 92, 4, 1);
+  color: rgba(48, 252, 140, 1);
 }

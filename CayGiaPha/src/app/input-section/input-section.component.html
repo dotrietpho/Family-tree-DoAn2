@@ -9,15 +9,12 @@
       [ngModelOptions]="{ standalone: true }"
     />
     <small id="emailHelp" class="form-text text-muted"
-      >Chọn thanh viên bằng cách click</small
+      ><i>Chọn thành viên bằng cách click</i></small
     >
   </div>
 
   <div class="form-group text-center">
-    <img
-      src="{{ hostURL }}{{ person.personImg }}"
-      style="width: 120px; height: 120px;"
-    />
+    <img src="{{ imgURL }}" style="width: 120px; height: 120px;" />
 
     <input
       style="display: none"
@@ -27,48 +24,62 @@
       #fileInput
     />
     <button
-      class="form-control-file btn-outline-info"
+      class="btn form-control-file btn-outline-info"
       (click)="fileInput.click()"
     >
       Select File
     </button>
   </div>
+  <div class="text-center">
+    <div class="form-check form-check-inline ">
+      <input
+        class="form-check-input inputsex"
+        type="radio"
+        name="sex1"
+        [(ngModel)]="person.personGender"
+        value="male"
+        [attr.checked]="person.personGender == 'male' ? 'true' : NULL"
+        data-icon=""
+      />
+    </div>
 
-  <div class="form-check form-check-inline">
-    <input
-      class="form-check-input"
-      type="radio"
-      name="inlineRadioOptions"
-      [(ngModel)]="person.personGender"
-      id="inlineRadio1"
-      value="male"
-      [attr.checked]="person.personGender == 'male' ? 'true' : NULL"
-    />
-    <label class="form-check-label" for="inlineRadio1">Nam</label>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input inputsex"
+        type="radio"
+        name="sex1"
+        [(ngModel)]="person.personGender"
+        value="female"
+        [attr.checked]="person.personGender == 'female' ? 'true' : NULL"
+        data-icon=""
+      />
+    </div>
   </div>
-  <div class="form-check form-check-inline">
-    <input
-      class="form-check-input"
-      type="radio"
-      name="inlineRadioOptions"
-      [(ngModel)]="person.personGender"
-      id="inlineRadio2"
-      value="female"
-      [attr.checked]="person.personGender == 'female' ? 'true' : NULL"
-    />
-    <label class="form-check-label" for="inlineRadio2">Nữ</label>
-  </div>
-  <div>
-    <button type="button" (click)="_personChange(person)" class="btn-primary">
+  <br />
+  <div class="text-center">
+    <button
+      type="button"
+      (click)="_personChange(person)"
+      class="btn btn-primary"
+      style="margin-right: 10px;"
+    >
       Xác nhận
     </button>
-    <button type="button" (click)="_deletePerson(person)" class="btn-danger">
+    <button
+      type="button"
+      (click)="_deletePerson(person)"
+      class="btn btn-danger"
+      style="margin-right: 10px;"
+    >
       Xoá
     </button>
   </div>
-  <button type="button" (click)="show = !show">
+  <br />
+  <button type="button" class="btn btn-outline-info" (click)="show = !show">
     {{ show ? "Ẩn" : "Hiện" }}
   </button>
+  <br />
+  <br />
   <div *ngIf="show">
     <div class="form-group">
       <input
@@ -79,7 +90,7 @@
         [ngModelOptions]="{ standalone: true }"
       />
       <small id="emailHelp" class="form-text text-muted"
-        >Tên thành viên mới</small
+        ><i>Tên thành viên mới</i></small
       >
     </div>
     <div class="form-group text-center">
@@ -92,46 +103,68 @@
         #fileInput2
       />
       <button
-        class="form-control-file btn-outline-info"
+        class="form-control-file btn btn-outline-info"
         (click)="fileInput2.click()"
       >
         Select File
       </button>
     </div>
-    <div class="form-check form-check-inline">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="inlineRadioOptions1"
-        id="inlineRadio1"
-        [(ngModel)]="newPerson.personGender"
-        value="male"
-        [attr.checked]="newPerson.personGender == 'male' ? 'true' : NULL"
-      />
-      <label class="form-check-label" for="inlineRadio1">Nam</label>
+    <div class="text-center">
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input inputsex"
+          type="radio"
+          name="sex2"
+          [(ngModel)]="newPerson.personGender"
+          value="male"
+          [attr.checked]="newPerson.personGender == 'male' ? 'true' : NULL"
+          data-icon=""
+        />
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input inputsex"
+          type="radio"
+          name="sex2"
+          [(ngModel)]="newPerson.personGender"
+          value="female"
+          [attr.checked]="newPerson.personGender == 'female' ? 'true' : NULL"
+          data-icon=""
+        />
+      </div>
     </div>
-    <div class="form-check form-check-inline">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="inlineRadioOptions1"
-        id="inlineRadio2"
-        [(ngModel)]="newPerson.personGender"
-        value="female"
-        [attr.checked]="newPerson.personGender == 'female' ? 'true' : NULL"
-      />
-      <label class="form-check-label" for="inlineRadio2">Nữ</label>
-    </div>
-    <div>
-      <button type="button" (click)="_addChild()" class="btn btn-primary">
-        Con
-      </button>
-      <button type="button" (click)="_addParent()" class="btn btn-primary">
-        Phụ Huynh
-      </button>
-      <button type="button" (click)="_addPartner()" class="btn btn-primary">
-        Vợ/Chồng
-      </button>
+    <br />
+    <div class="row text-center" style="margin: 0">
+      <div class="col-xs-4" style="margin: 0 1px">
+        <button
+          type="button"
+          (click)="_addChild()"
+          class="btn btn-primary"
+          style="width: 60px;"
+        >
+          Con
+        </button>
+      </div>
+      <div class="col-xs-4" style="margin: 0 1px">
+        <button
+          type="button"
+          (click)="_addParent()"
+          class="btn btn-primary"
+          style="width: 90px;"
+        >
+          Phụ Huynh
+        </button>
+      </div>
+      <div class="col-xs-4" style="margin: 0 1px">
+        <button
+          type="button"
+          (click)="_addPartner()"
+          class="btn btn-primary"
+          style="width: 86px;"
+        >
+          Vợ/Chồng
+        </button>
+      </div>
     </div>
   </div>
 </form>
